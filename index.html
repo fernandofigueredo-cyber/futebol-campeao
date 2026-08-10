@@ -321,38 +321,10 @@
 </div>
 
 <div class="hero">
-  <article class="hero-main">
-    <span class="eyebrow">Manchete do dia · Brasileirão</span>
-    <h1>Flamengo vence o Vitória por 2 a 0 e reduz distância para o líder Palmeiras</h1>
-    <p>Com o resultado no Maracanã, o Rubro-Negro chega aos 42 pontos, seis atrás do líder Palmeiras, que estacionou aos 48 depois de empatar sem gols com o Internacional nesta 22ª rodada.</p>
-    <div class="hero-meta">
-      <span>Brasileirão · 22ª rodada</span>
-      <span>Hoje</span>
-    </div>
+  <article class="hero-main" id="hero-main">
   </article>
 
-  <div class="side-list">
-    <div class="side-item">
-      <a href="#">
-        <span class="tag">Brasileirão</span>
-        <h3>Palmeiras empata sem gols com o Internacional e segue na ponta</h3>
-        <span class="time">Hoje</span>
-      </a>
-    </div>
-    <div class="side-item">
-      <a href="#">
-        <span class="tag">Brasileirão</span>
-        <h3>Bahia e Vasco travam confronto direto e ficam no 0 a 0</h3>
-        <span class="time">Hoje</span>
-      </a>
-    </div>
-    <div class="side-item">
-      <a href="#">
-        <span class="tag">Brasileirão</span>
-        <h3>Corinthians vence o Bragantino fora de casa com falha de Volpi</h3>
-        <span class="time">Hoje</span>
-      </a>
-    </div>
+  <div class="side-list" id="side-list">
   </div>
 </div>
 
@@ -369,7 +341,7 @@
 </footer>
 
 <script>
-  const jogos = [
+  const jogosFallback = [
     { time1:"Flamengo", time2:"Vitória", placar:"2–0", status:"Encerrado" },
     { time1:"Palmeiras", time2:"Internacional", placar:"0–0", status:"Encerrado" },
     { time1:"Bahia", time2:"Vasco", placar:"0–0", status:"Encerrado" },
@@ -397,15 +369,29 @@
   }
 
   const tickerEl = document.getElementById('ticker');
-  const dobrado = [...jogos, ...jogos]; // duplicado para loop contínuo
-  tickerEl.innerHTML = dobrado.map(j => `
-    <span class="ticker-item">
-      <span class="team">${j.time1} ${j.placar.split('–')[0]}</span>
-      <span class="score">${j.placar}</span>
-      <span class="team">${j.time2} ${j.placar.split('–')[1]}</span>
-      <span class="status">${j.status}</span>
-    </span>
-  `).join('');
+  function renderTicker(jogos){
+    const dobrado = [...jogos, ...jogos]; // duplicado para loop contínuo
+    tickerEl.innerHTML = dobrado.map(j => `
+      <span class="ticker-item">
+        <span class="team">${j.time1} ${j.placar.split('–')[0]}</span>
+        <span class="score">${j.placar}</span>
+        <span class="team">${j.time2} ${j.placar.split('–')[1]}</span>
+        <span class="status">${j.status}</span>
+      </span>
+    `).join('');
+  }
+  renderTicker(jogosFallback);
+
+  function buscarPlacarAoVivo(){
+    fetch('/.netlify/functions/placar')
+      .then(r => r.json())
+      .then(data => {
+        if (data.jogos && data.jogos.length) renderTicker(data.jogos);
+      })
+      .catch(() => {}); // mantém o placar atual se a busca falhar
+  }
+  buscarPlacarAoVivo();
+  setInterval(buscarPlacarAoVivo, 60000); // atualiza a cada 1 minuto
 
   const noticiasFallback = [
     { sport:"Brasileirão", titulo:"Viveros marca duas vezes e Athletico-PR goleia o Santos", resumo:"Com dois gols de Kevin Viveros, artilheiro isolado do Brasileirão, o Furacão venceu por 2 a 0 na Vila Belmiro e chegou ao G-4.", tempo:"Hoje", imagem:"" },
@@ -426,6 +412,31 @@
       </div>
     `).join('');
   }
+
+  fetch('content/destaque.json')
+    .then(r => r.json())
+    .then(data => {
+      const m = data.manchete;
+      document.getElementById('hero-main').innerHTML = `
+        <span class="eyebrow">Manchete do dia · ${m.categoria}</span>
+        <h1>${m.titulo}</h1>
+        <p>${m.resumo}</p>
+        <div class="hero-meta">
+          <span>${m.competicao}</span>
+          <span>${m.tempo}</span>
+        </div>
+      `;
+      document.getElementById('side-list').innerHTML = (data.laterais || []).map(l => `
+        <div class="side-item">
+          <a href="#">
+            <span class="tag">${l.categoria}</span>
+            <h3>${l.titulo}</h3>
+            <span class="time">${l.tempo}</span>
+          </a>
+        </div>
+      `).join('');
+    })
+    .catch(() => {});
 
   fetch('content/noticias.json')
     .then(r => r.json())
