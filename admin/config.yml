@@ -1,0 +1,25 @@
+backend:
+  name: git-gateway
+  branch: main
+
+media_folder: "images"
+public_folder: "/images"
+
+collections:
+  - name: "noticias"
+    label: "Notícias"
+    files:
+      - name: "lista"
+        label: "Lista de Notícias"
+        file: "content/noticias.json"
+        fields:
+          - label: "Notícias"
+            name: "items"
+            widget: "list"
+            summary: "{{titulo}}"
+            fields:
+              - { label: "Categoria", name: "sport", widget: "select", options: ["Brasileirão", "Copa do Brasil", "Mercado da Bola", "Europa", "Amistosos"] }
+              - { label: "Título", name: "titulo", widget: "string" }
+              - { label: "Resumo", name: "resumo", widget: "text" }
+              - { label: "Quando", name: "tempo", widget: "string", default: "Hoje" }
+              - { label: "Foto", name: "imagem", widget: "image", required: false }
