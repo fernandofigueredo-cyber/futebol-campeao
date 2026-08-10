@@ -6,20 +6,29 @@ media_folder: "images"
 public_folder: "/images"
 
 collections:
-  - name: "noticias"
-    label: "Notícias"
+  - name: "destaque"
+    label: "Destaque da Home"
     files:
-      - name: "lista"
-        label: "Lista de Notícias"
-        file: "content/noticias.json"
+      - name: "principal"
+        label: "Manchete e Laterais"
+        file: "content/destaque.json"
         fields:
-          - label: "Notícias"
-            name: "items"
+          - label: "Manchete Principal"
+            name: "manchete"
+            widget: "object"
+            fields:
+              - { label: "Categoria", name: "categoria", widget: "select", options: ["Brasileirão", "Copa do Brasil", "Mercado da Bola", "Europa", "Amistosos"] }
+              - { label: "Título", name: "titulo", widget: "string" }
+              - { label: "Resumo", name: "resumo", widget: "text" }
+              - { label: "Competição/Rodada", name: "competicao", widget: "string" }
+              - { label: "Quando", name: "tempo", widget: "string", default: "Hoje" }
+          - label: "Destaques Laterais"
+            name: "laterais"
             widget: "list"
             summary: "{{titulo}}"
             fields:
-              - { label: "Categoria", name: "sport", widget: "select", options: ["Brasileirão", "Copa do Brasil", "Mercado da Bola", "Europa", "Amistosos"] }
+              - { label: "Categoria", name: "categoria", widget: "select", options: ["Brasileirão", "Copa do Brasil", "Mercado da Bola", "Europa", "Amistosos"] }
               - { label: "Título", name: "titulo", widget: "string" }
-              - { label: "Resumo", name: "resumo", widget: "text" }
               - { label: "Quando", name: "tempo", widget: "string", default: "Hoje" }
-              - { label: "Foto", name: "imagem", widget: "image", required: false }
+
+  - name: "noticias"
