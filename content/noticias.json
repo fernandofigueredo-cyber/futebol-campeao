@@ -5,7 +5,7 @@
       "titulo": "Viveros marca duas vezes e Athletico-PR goleia o Santos",
       "resumo": "Com dois gols de Kevin Viveros, artilheiro isolado do Brasileirão, o Furacão venceu por 2 a 0 na Vila Belmiro e chegou ao G-4, enquanto o Santos, sem Neymar suspenso, voltou à zona de rebaixamento.",
       "tempo": "Hoje",
-      "imagem": "/images/athletico-pr-bate-santos-serie-a.webp"
+      "imagem": "/images/athletico-santos-scaled-aspect-ratio-512-320.webp"
     },
     {
       "sport": "Brasileirão",
@@ -40,7 +40,7 @@
       "titulo": "Internacional elimina o Corinthians e avança na competição",
       "resumo": "O Timão venceu o jogo de volta por 2 a 1, mas não superou a derrota por 2 a 0 no confronto de ida e caiu diante do Colorado.",
       "tempo": "Esta semana",
-      "imagem": ""
+      "imagem": "/images/corinthians-x-internacional-1-aspect-ratio-512-320.webp"
     }
   ]
 }
