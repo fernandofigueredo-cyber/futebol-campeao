@@ -376,7 +376,7 @@
         <span class="team">${j.time1} ${j.placar.split('–')[0]}</span>
         <span class="score">${j.placar}</span>
         <span class="team">${j.time2} ${j.placar.split('–')[1]}</span>
-        <span class="status">${j.status}</span>
+        <span class="status">${j.campeonato ? j.campeonato + ' · ' : ''}${j.status}</span>
       </span>
     `).join('');
   }
