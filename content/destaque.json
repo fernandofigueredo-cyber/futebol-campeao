@@ -4,11 +4,23 @@
     "titulo": "Flamengo vence o Vitória por 2 a 0 e reduz distância para o líder Palmeiras",
     "resumo": "Com o resultado no Maracanã, o Rubro-Negro chega aos 42 pontos, seis atrás do líder Palmeiras, que estacionou aos 48 depois de empatar sem gols com o Internacional nesta 22ª rodada.",
     "competicao": "Brasileirão · 22ª rodada",
-    "tempo": "Hoje"
+    "tempo": "Ontem"
   },
   "laterais": [
-    { "categoria": "Brasileirão", "titulo": "Palmeiras empata sem gols com o Internacional e segue na ponta", "tempo": "Hoje" },
-    { "categoria": "Brasileirão", "titulo": "Bahia e Vasco travam confronto direto e ficam no 0 a 0", "tempo": "Hoje" },
-    { "categoria": "Brasileirão", "titulo": "Corinthians vence o Bragantino fora de casa com falha de Volpi", "tempo": "Hoje" }
+    {
+      "categoria": "Brasileirão",
+      "titulo": "Palmeiras empata sem gols com o Internacional e segue na ponta",
+      "tempo": "Hoje"
+    },
+    {
+      "categoria": "Brasileirão",
+      "titulo": "Bahia e Vasco travam confronto direto e ficam no 0 a 0",
+      "tempo": "Hoje"
+    },
+    {
+      "categoria": "Brasileirão",
+      "titulo": "Corinthians vence o Bragantino fora de casa com falha de Volpi",
+      "tempo": "Hoje"
+    }
   ]
 }
