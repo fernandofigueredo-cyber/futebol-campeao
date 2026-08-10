@@ -1,0 +1,425 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Futebol Campeão — Notícias de Futebol</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Oswald:wght@500;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --paper:#FAF8F3;
+    --ink:#15161A;
+    --crimson:#D91E36;
+    --cobalt:#1B3F8B;
+    --gold:#F2A900;
+    --gray:#6B6E76;
+    --line:rgba(21,22,26,0.12);
+  }
+  *{box-sizing:border-box; margin:0; padding:0;}
+  body{
+    background:var(--paper);
+    color:var(--ink);
+    font-family:'Inter', sans-serif;
+    line-height:1.5;
+  }
+  a{color:inherit; text-decoration:none;}
+
+  /* ---- Header ---- */
+  header{
+    border-bottom:3px solid var(--ink);
+    position:sticky; top:0; z-index:50;
+    background:rgba(250,248,243,0.95);
+    backdrop-filter:blur(8px);
+  }
+  .header-inner{
+    max-width:1100px; margin:0 auto;
+    display:flex; align-items:center; justify-content:space-between;
+    padding:16px 20px;
+    flex-wrap:wrap;
+    gap:10px;
+  }
+  .logo{
+    font-family:'Oswald', sans-serif;
+    font-weight:700;
+    font-size:1.5rem;
+    letter-spacing:0.03em;
+    color:var(--ink);
+    white-space:nowrap;
+  }
+  .logo span{color:var(--crimson);}
+  nav{
+    display:flex; flex-wrap:wrap; gap:2px;
+    justify-content:flex-end;
+  }
+  nav a{
+    font-family:'Oswald', sans-serif;
+    font-size:0.72rem;
+    letter-spacing:0.04em;
+    text-transform:uppercase;
+    color:var(--ink);
+    padding:6px 10px;
+    border-radius:2px;
+    white-space:nowrap;
+    transition:background .15s ease, color .15s ease;
+  }
+  nav a:nth-child(1):hover{background:var(--crimson); color:#fff;}
+  nav a:nth-child(2):hover{background:var(--cobalt); color:#fff;}
+  nav a:nth-child(3):hover{background:var(--gold); color:var(--ink);}
+  nav a:nth-child(4):hover{background:var(--crimson); color:#fff;}
+  nav a:nth-child(5):hover{background:var(--cobalt); color:#fff;}
+  nav a:focus-visible{outline:none;}
+  @media(max-width:640px){
+    .header-inner{padding:12px 16px;}
+    nav{
+      width:100%;
+      justify-content:flex-start;
+      overflow-x:auto;
+      flex-wrap:nowrap;
+      -webkit-overflow-scrolling:touch;
+      padding-bottom:2px;
+    }
+    nav a{padding:6px 9px; font-size:0.68rem;}
+  }
+
+  /* ---- Scoreboard ticker (signature element): diagonal jersey stripe ---- */
+  .ticker-wrap{
+    background:var(--ink);
+    background-image:repeating-linear-gradient(
+      -45deg,
+      var(--ink) 0 40px,
+      var(--crimson) 40px 46px,
+      var(--ink) 46px 86px,
+      var(--cobalt) 86px 92px
+    );
+    border-bottom:3px solid var(--ink);
+    overflow:hidden;
+    white-space:nowrap;
+  }
+  .ticker{
+    display:inline-flex;
+    animation:scroll 28s linear infinite;
+    padding:10px 0;
+  }
+  @media (prefers-reduced-motion: reduce){
+    .ticker{animation:none;}
+  }
+  .ticker-item{
+    display:inline-flex; align-items:center; gap:10px;
+    padding:0 28px;
+    font-family:'Oswald', sans-serif;
+    font-size:0.85rem;
+  }
+  .ticker-item .team{color:#fff; font-weight:600;}
+  .ticker-item .score{
+    color:var(--ink); font-weight:700;
+    background:var(--gold);
+    padding:2px 8px; border-radius:2px;
+    font-variant-numeric:tabular-nums;
+  }
+  .ticker-item .status{color:#fff; opacity:0.75; font-size:0.75rem; text-transform:uppercase; letter-spacing:0.06em;}
+  @keyframes scroll{
+    from{transform:translateX(0);}
+    to{transform:translateX(-50%);}
+  }
+
+  /* ---- Hero ---- */
+  .hero{
+    max-width:1100px; margin:0 auto;
+    padding:48px 20px 40px;
+    display:grid;
+    grid-template-columns:1.4fr 1fr;
+    gap:32px;
+  }
+  @media(max-width:760px){.hero{grid-template-columns:1fr;}}
+
+  .hero-main{
+    position:relative;
+    border-radius:4px;
+    overflow:hidden;
+    background:linear-gradient(160deg, var(--crimson) 0%, #A3122A 100%);
+    padding:32px;
+    min-height:360px;
+    display:flex; flex-direction:column; justify-content:flex-end;
+    border:3px solid var(--ink);
+  }
+  .hero-main::before{
+    content:"";
+    position:absolute; inset:0;
+    background-image:
+      repeating-linear-gradient(-45deg, rgba(255,255,255,0.06) 0 2px, transparent 2px 34px);
+    pointer-events:none;
+  }
+  .hero-main::after{
+    content:"";
+    position:absolute; right:-30px; bottom:-30px;
+    width:220px; height:220px;
+    background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Ccircle cx='32' cy='32' r='30' fill='none' stroke='white' stroke-width='1.5' opacity='0.5'/%3E%3Cpath d='M32 8 L42 16 L38 28 L26 28 L22 16 Z' fill='white' opacity='0.5'/%3E%3Cpath d='M32 8 L14 22 M32 8 L50 22 M26 28 L10 34 M38 28 L54 34 M26 28 L32 52 M38 28 L32 52' stroke='white' stroke-width='1.2' opacity='0.5'/%3E%3C/svg%3E");
+    background-size:contain; background-repeat:no-repeat;
+    pointer-events:none;
+  }
+  .eyebrow{
+    font-family:'Oswald', sans-serif;
+    font-size:0.75rem;
+    letter-spacing:0.12em;
+    text-transform:uppercase;
+    color:var(--gold);
+    margin-bottom:12px;
+  }
+  .hero-main h1{
+    font-family:'Oswald', sans-serif;
+    font-weight:700;
+    font-size:clamp(1.8rem, 4vw, 2.6rem);
+    line-height:1.08;
+    max-width:20ch;
+    margin-bottom:14px;
+    color:#fff;
+  }
+  .hero-main p{color:rgba(255,255,255,0.85); max-width:42ch; font-size:0.95rem;}
+  .hero-meta{
+    display:flex; gap:16px; margin-top:20px;
+    font-family:'Oswald', sans-serif;
+    font-size:0.78rem; color:rgba(255,255,255,0.75);
+    text-transform:uppercase; letter-spacing:0.04em;
+  }
+
+  .side-list{display:flex; flex-direction:column; gap:0;}
+  .side-item{
+    padding:18px 0;
+    border-bottom:1px solid var(--line);
+    border-left:4px solid transparent;
+    padding-left:14px;
+    transition:border-color .15s ease;
+  }
+  .side-item:nth-child(1){border-left-color:var(--cobalt);}
+  .side-item:nth-child(2){border-left-color:var(--gold);}
+  .side-item:nth-child(3){border-left-color:var(--crimson);}
+  .side-item:first-child{padding-top:0;}
+  .side-item .tag{
+    font-family:'Oswald', sans-serif;
+    font-size:0.7rem; letter-spacing:0.1em; text-transform:uppercase;
+    color:var(--cobalt);
+    margin-bottom:6px; display:block;
+  }
+  .side-item h3{
+    font-family:'Oswald', sans-serif;
+    font-weight:600;
+    font-size:1.05rem;
+    line-height:1.25;
+    margin-bottom:4px;
+    color:var(--ink);
+  }
+  .side-item .time{font-size:0.78rem; color:var(--gray);}
+  .side-item a:hover h3, .side-item a:focus-visible h3{color:var(--crimson);}
+
+  /* ---- Section grid ---- */
+  section.feed{
+    max-width:1100px; margin:0 auto;
+    padding:10px 20px 60px;
+  }
+  .section-head{
+    display:flex; align-items:baseline; gap:12px;
+    margin:36px 0 18px;
+  }
+  .section-head h2{
+    font-family:'Oswald', sans-serif;
+    font-weight:600;
+    font-size:1.1rem;
+    text-transform:uppercase;
+    letter-spacing:0.06em;
+  }
+  .section-head .rule{flex:1; height:3px; background:repeating-linear-gradient(90deg, var(--ink) 0 10px, transparent 10px 14px);}
+
+  .grid{
+    display:grid;
+    grid-template-columns:repeat(3, 1fr);
+    gap:24px;
+  }
+  @media(max-width:760px){.grid{grid-template-columns:1fr;}}
+
+  .card{
+    border:1px solid var(--line);
+    border-radius:4px;
+    overflow:hidden;
+    background:#fff;
+    transition:border-color .15s ease, transform .15s ease, box-shadow .15s ease;
+  }
+  .card:hover{border-color:var(--ink); transform:translateY(-2px); box-shadow:4px 4px 0 var(--gold);}
+  .card:nth-child(6n+1) .card-media{background:linear-gradient(135deg, var(--crimson), #A3122A);}
+  .card:nth-child(6n+2) .card-media{background:linear-gradient(135deg, var(--cobalt), #12285C);}
+  .card:nth-child(6n+3) .card-media{background:linear-gradient(135deg, var(--gold), #C98700);}
+  .card:nth-child(6n+4) .card-media{background:linear-gradient(135deg, var(--cobalt), #12285C);}
+  .card:nth-child(6n+5) .card-media{background:linear-gradient(135deg, var(--crimson), #A3122A);}
+  .card:nth-child(6n+6) .card-media{background:linear-gradient(135deg, var(--gold), #C98700);}
+  .card-media{
+    height:150px;
+    position:relative;
+    display:flex; align-items:center; justify-content:center;
+  }
+  .card-media svg{width:56px; height:56px; opacity:0.92;}
+  .card-media .sport-tag{
+    position:absolute; top:10px; left:10px;
+    font-family:'Oswald', sans-serif;
+    font-size:0.68rem; text-transform:uppercase; letter-spacing:0.08em;
+    background:rgba(255,255,255,0.92);
+    padding:3px 9px; border-radius:2px;
+    color:var(--ink);
+  }
+  .card-body{padding:16px;}
+  .card-body h3{
+    font-family:'Oswald', sans-serif;
+    font-weight:600;
+    font-size:1rem;
+    line-height:1.3;
+    margin-bottom:8px;
+    color:var(--ink);
+  }
+  .card-body p{font-size:0.85rem; color:var(--gray); margin-bottom:10px;}
+  .card-body .time{font-size:0.75rem; color:var(--gray);}
+
+  footer{
+    border-top:3px solid var(--ink);
+    padding:28px 20px;
+    text-align:center;
+    font-size:0.8rem;
+    color:var(--gray);
+  }
+  footer strong{color:var(--ink);}
+
+  :focus-visible{outline:2px solid var(--cobalt); outline-offset:2px;}
+</style>
+</head>
+<body>
+
+<header>
+  <div class="header-inner">
+    <div class="logo">FUTEBOL<span>CAMPEÃO</span></div>
+    <nav>
+      <a href="#">Brasileirão</a>
+      <a href="#">Libertadores</a>
+      <a href="#">Europa</a>
+      <a href="#">Seleção</a>
+      <a href="#">Mercado da Bola</a>
+    </nav>
+  </div>
+</header>
+
+<div class="ticker-wrap" aria-label="Placar do Brasileirão">
+  <div class="ticker" id="ticker"></div>
+</div>
+
+<div class="hero">
+  <article class="hero-main">
+    <span class="eyebrow">Manchete do dia · Brasileirão</span>
+    <h1>Flamengo vence o Vitória por 2 a 0 e reduz distância para o líder Palmeiras</h1>
+    <p>Com o resultado no Maracanã, o Rubro-Negro chega aos 42 pontos, seis atrás do líder Palmeiras, que estacionou aos 48 depois de empatar sem gols com o Internacional nesta 22ª rodada.</p>
+    <div class="hero-meta">
+      <span>Brasileirão · 22ª rodada</span>
+      <span>Hoje</span>
+    </div>
+  </article>
+
+  <div class="side-list">
+    <div class="side-item">
+      <a href="#">
+        <span class="tag">Brasileirão</span>
+        <h3>Palmeiras empata sem gols com o Internacional e segue na ponta</h3>
+        <span class="time">Hoje</span>
+      </a>
+    </div>
+    <div class="side-item">
+      <a href="#">
+        <span class="tag">Brasileirão</span>
+        <h3>Bahia e Vasco travam confronto direto e ficam no 0 a 0</h3>
+        <span class="time">Hoje</span>
+      </a>
+    </div>
+    <div class="side-item">
+      <a href="#">
+        <span class="tag">Brasileirão</span>
+        <h3>Corinthians vence o Bragantino fora de casa com falha de Volpi</h3>
+        <span class="time">Hoje</span>
+      </a>
+    </div>
+  </div>
+</div>
+
+<section class="feed">
+  <div class="section-head">
+    <h2>Últimas notícias</h2>
+    <div class="rule"></div>
+  </div>
+  <div class="grid" id="feed-grid"></div>
+</section>
+
+<footer>
+  <strong>Futebol Campeão</strong> — cobertura do Brasileirão, Copa do Brasil e futebol europeu.
+</footer>
+
+<script>
+  const jogos = [
+    { time1:"Flamengo", time2:"Vitória", placar:"2–0", status:"Encerrado" },
+    { time1:"Palmeiras", time2:"Internacional", placar:"0–0", status:"Encerrado" },
+    { time1:"Bahia", time2:"Vasco", placar:"0–0", status:"Encerrado" },
+    { time1:"Cruzeiro", time2:"Mirassol", placar:"3–1", status:"Encerrado" },
+    { time1:"Santos", time2:"Athletico-PR", placar:"0–2", status:"Encerrado" },
+    { time1:"Bragantino", time2:"Corinthians", placar:"0–2", status:"Encerrado" },
+  ];
+
+  const icones = {
+    "Brasileirão": `<svg viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg"><circle cx="32" cy="32" r="26" fill="#fff" fill-opacity="0.15"/><circle cx="32" cy="32" r="26" stroke="#fff" stroke-width="2"/><path d="M32 16 L40 22 L37 31 L27 31 L24 22 Z" fill="#fff"/><path d="M32 16 L18 26 M32 16 L46 26 M27 31 L14 34 M37 31 L50 34 M27 31 L32 48 M37 31 L32 48" stroke="#fff" stroke-width="1.6"/></svg>`,
+    "Brasileirão-2": `<svg viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg"><rect x="10" y="22" width="44" height="24" rx="2" fill="#fff" fill-opacity="0.15" stroke="#fff" stroke-width="2"/><line x1="32" y1="22" x2="32" y2="46" stroke="#fff" stroke-width="2"/><circle cx="32" cy="34" r="6" stroke="#fff" stroke-width="2"/><path d="M10 22 22 12M54 22 42 12" stroke="#fff" stroke-width="1.6"/></svg>`,
+    "Brasileirão-3": `<svg viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M12 46h40M18 46V26l14-12 14 12v20" stroke="#fff" stroke-width="2" fill="#fff" fill-opacity="0.12" stroke-linejoin="round"/><rect x="27" y="34" width="10" height="12" fill="#fff" fill-opacity="0.3" stroke="#fff" stroke-width="1.6"/></svg>`,
+    "Copa do Brasil": `<svg viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M20 14h24v10a12 12 0 0 1-24 0V14Z" fill="#fff" fill-opacity="0.15" stroke="#fff" stroke-width="2"/><path d="M20 18h-6a6 6 0 0 0 6 10M44 18h6a6 6 0 0 1-6 10" stroke="#fff" stroke-width="2"/><path d="M32 36v8m-8 6h16m-16 0 2-6h12l2 6" stroke="#fff" stroke-width="2" stroke-linejoin="round"/></svg>`,
+    "Mercado da Bola": `<svg viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M16 40 32 16l16 24" stroke="#fff" stroke-width="2" fill="#fff" fill-opacity="0.15" stroke-linejoin="round"/><path d="M22 40h20v8H22z" fill="#fff" fill-opacity="0.15" stroke="#fff" stroke-width="2"/><path d="M27 48h10" stroke="#fff" stroke-width="2"/></svg>`,
+    "Europa": `<svg viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg"><circle cx="32" cy="32" r="18" fill="#fff" fill-opacity="0.15" stroke="#fff" stroke-width="2"/><path d="M32 14v36M14 32h36" stroke="#fff" stroke-width="1.4" opacity="0.6"/><circle cx="32" cy="32" r="4" fill="#fff"/><circle cx="32" cy="18" r="2.4" fill="#fff"/><circle cx="44" cy="26" r="2.4" fill="#fff"/><circle cx="44" cy="40" r="2.4" fill="#fff"/><circle cx="20" cy="40" r="2.4" fill="#fff"/><circle cx="20" cy="26" r="2.4" fill="#fff"/></svg>`,
+    "Amistosos": `<svg viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M12 32c6-4 10-4 14 0s8 4 12 0 8-4 14 0" stroke="#fff" stroke-width="2.2" fill="none"/><circle cx="32" cy="32" r="22" stroke="#fff" stroke-width="2" fill="#fff" fill-opacity="0.1"/></svg>`,
+  };
+  const variacoesBrasileirao = ["Brasileirão", "Brasileirão-2", "Brasileirão-3"];
+  function escolherIcone(sport, i){
+    if(sport === "Brasileirão"){
+      const chave = variacoesBrasileirao[i % variacoesBrasileirao.length];
+      return icones[chave];
+    }
+    return icones[sport] || icones["Brasileirão"];
+  }
+
+  const tickerEl = document.getElementById('ticker');
+  const dobrado = [...jogos, ...jogos]; // duplicado para loop contínuo
+  tickerEl.innerHTML = dobrado.map(j => `
+    <span class="ticker-item">
+      <span class="team">${j.time1} ${j.placar.split('–')[0]}</span>
+      <span class="score">${j.placar}</span>
+      <span class="team">${j.time2} ${j.placar.split('–')[1]}</span>
+      <span class="status">${j.status}</span>
+    </span>
+  `).join('');
+
+  const noticiasFallback = [
+    { sport:"Brasileirão", titulo:"Viveros marca duas vezes e Athletico-PR goleia o Santos", resumo:"Com dois gols de Kevin Viveros, artilheiro isolado do Brasileirão, o Furacão venceu por 2 a 0 na Vila Belmiro e chegou ao G-4.", tempo:"Hoje", imagem:"" },
+  ];
+
+  function renderNoticias(noticias){
+    document.getElementById('feed-grid').innerHTML = noticias.map((n, i) => `
+      <div class="card">
+        <div class="card-media">
+          ${n.imagem ? `<img src="${n.imagem}" alt="${n.titulo}" style="width:100%;height:100%;object-fit:cover;">` : escolherIcone(n.sport, i)}
+          <span class="sport-tag">${n.sport}</span>
+        </div>
+        <div class="card-body">
+          <h3>${n.titulo}</h3>
+          <p>${n.resumo}</p>
+          <span class="time">${n.tempo}</span>
+        </div>
+      </div>
+    `).join('');
+  }
+
+  fetch('content/noticias.json')
+    .then(r => r.json())
+    .then(data => renderNoticias(data.items || noticiasFallback))
+    .catch(() => renderNoticias(noticiasFallback));
+</script>
+
+</body>
+</html>
