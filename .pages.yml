@@ -40,7 +40,7 @@ collections:
   - name: "admin"
     label: "Admin"
     folder: "admin"
-    create: true
+    create: 
     extension: "md"
     format: "md"
     slug: "{{filename}}"
