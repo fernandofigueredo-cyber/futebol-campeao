@@ -10,39 +10,23 @@ collections:
         name: "noticias"
         format: "json"
         fields:
-          - label: "Lista de notícias"
+          - label: "Lista"
             name: "items"
             widget: "list"
             fields:
-              - {label: "Esporte", name: "sport", widget: "string"}
-              - {label: "Título", name: "titulo", widget: "string"}
-              - {label: "Resumo", name: "resumo", widget: "markdown", mode: "rich"}
-              - {label: "Tempo", name: "tempo", widget: "string"}
-              - {label: "Imagem", name: "imagem", widget: "image", required: false}
-
-  - name: "destaque"
-    label: "Destaque"
-    files:
-      - file: "content/destaque.json"
-        label: "Destaque"
-        name: "destaque"
-        format: "json"
-        fields:
-          - label: "Lista de destaques"
-            name: "items"
-            widget: "list"
-            fields:
-              - {label: "Título", name: "titulo", widget: "string"}
-              - {label: "Texto", name: "texto", widget: "markdown", mode: "rich"}
-              - {label: "Imagem", name: "imagem", widget: "image", required: false}
-              - {label: "Link/Extra", name: "link", widget: "string", required: false}
-
-  - name: "admin"
-    label: "Admin"
-    folder: "admin"
-    create: 
-    extension: "md"
-    format: "md"
-    slug: "{{filename}}"
-    fields:
-      - {label: "Arquivo", name: "body", widget: "markdown"}
+              - label: "Esporte"
+                name: "sport"
+                widget: "string"
+              - label: "Título"
+                name: "titulo"
+                widget: "string"
+              - label: "Resumo"
+                name: "resumo"
+                widget: "text"
+              - label: "Tempo"
+                name: "tempo"
+                widget: "string"
+              - label: "Imagem"
+                name: "imagem"
+                widget: "image"
+                required: false
