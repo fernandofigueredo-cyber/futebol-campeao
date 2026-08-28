@@ -428,11 +428,12 @@
                 </div>
             `;
 
-            if (m.imagem) {
-                hero.style.backgroundImage = `linear-gradient(rgba(0,0,0,0.55), rgba(0,0,0,0.55)), url('${m.imagem}')`;
-                hero.style.backgroundSize = 'cover';
-                hero.style.backgroundPosition = 'center';
-            }
+if (m.imagem) {
+    hero.classList.add('com-imagem');
+    hero.style.backgroundImage = `linear-gradient(rgba(0,0,0,0.55), rgba(0,0,0,0.55)), url('${m.imagem}')`;
+    hero.style.backgroundSize = 'cover';
+    hero.style.backgroundPosition = 'center';
+}
 
             document.getElementById('side-list').innerHTML = (data.laterais || []).map(l => `
                 <div class="side-item">
