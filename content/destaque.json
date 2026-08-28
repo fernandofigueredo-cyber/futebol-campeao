@@ -10,17 +10,22 @@
   "laterais": [
     {
       "categoria": "Palmeiras",
-      "titulo": "Jhon Arias sofre lesão na coxa e desfalca o Palmeiras",
+      "titulo": "Jhon Arias sofre lesão na coxa e desfalca o Palmeiras.",
       "tempo": "Ontem"
     },
     {
       "categoria": "Flamengo",
-      "titulo": "Plata se aproxima do Dínamo de Moscou e deve ficar de fora contra o Botafogo",
+      "titulo": "Plata se aproxima do Dínamo de Moscou e deve ficar de fora contra o Botafogo.",
       "tempo": "Ontem"
     },
     {
       "categoria": "Coritiba",
-      "titulo": "Pedro Rocha celebra boa fase no Coritiba e projeta reencontro com o Remo: “Jogo especial”",
+      "titulo": "Pedro Rocha celebra boa fase no Coritiba e projeta reencontro com o Remo: “Jogo especial”.",
+      "tempo": "26/08"
+    },
+    {
+      "categoria": "Corinthians",
+      "titulo": "Treino do Corinthians: Yuri Alberto fica perto de retorno, e Hugo Souza faz atividade sem restrições.",
       "tempo": "26/08"
     }
   ]
