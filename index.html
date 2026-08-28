@@ -412,20 +412,27 @@
       </div>
     `).join('');
   }
+    fetch('content/destaque.json')
+        .then(r => r.json())
+        .then(data => {
+            const m = data.manchete;
+            const hero = document.getElementById('hero-main');
+            hero.innerHTML = `
+                <span class="eyebrow">Manchete do dia · ${m.categoria}</span>
+                <h1>${m.titulo}</h1>
+                <p>${m.resumo}</p>
+                <div class="hero-meta">
+                    <span>${m.competicao}</span>
+                    <span>${m.tempo}</span>
+                </div>
+            `;
 
-  fetch('content/destaque.json')
-    .then(r => r.json())
-    .then(data => {
-      const m = data.manchete;
-      document.getElementById('hero-main').innerHTML = `
-        <span class="eyebrow">Manchete do dia · ${m.categoria}</span>
-        <h1>${m.titulo}</h1>
-        <p>${m.resumo}</p>
-        <div class="hero-meta">
-          <span>${m.competicao}</span>
-          <span>${m.tempo}</span>
-        </div>
-      `;
+            if (m.imagem) {
+                hero.style.backgroundImage = `linear-gradient(rgba(0,0,0,0.55), rgba(0,0,0,0.55)), url('${m.imagem}')`;
+                hero.style.backgroundSize = 'cover';
+                hero.style.backgroundPosition = 'center';
+            }
+        })
       document.getElementById('side-list').innerHTML = (data.laterais || []).map(l => `
         <div class="side-item">
           <a href="#">
