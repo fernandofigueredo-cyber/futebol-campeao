@@ -28,3 +28,42 @@ content:
           - name: imagem
             label: Imagem
             type: image
+
+  - name: destaque
+    label: Destaque da Home
+    path: content/destaque.json
+    type: file
+    fields:
+      - name: manchete
+        label: Manchete
+        type: object
+        fields:
+          - name: categoria
+            label: Categoria
+            type: string
+          - name: titulo
+            label: Título
+            type: string
+          - name: resumo
+            label: Resumo
+            type: text
+          - name: competicao
+            label: Competição
+            type: string
+          - name: tempo
+            label: Tempo
+            type: string
+      - name: laterais
+        label: Notícias Laterais
+        type: object
+        list: true
+        fields:
+          - name: categoria
+            label: Categoria
+            type: string
+          - name: titulo
+            label: Título
+            type: string
+          - name: tempo
+            label: Tempo
+            type: string
