@@ -412,7 +412,7 @@
       </div>
     `).join('');
   }
-    fetch('content/destaque.json')
+        fetch('content/destaque.json')
         .then(r => r.json())
         .then(data => {
             const m = data.manchete;
@@ -432,18 +432,18 @@
                 hero.style.backgroundSize = 'cover';
                 hero.style.backgroundPosition = 'center';
             }
+
+            document.getElementById('side-list').innerHTML = (data.laterais || []).map(l => `
+                <div class="side-item">
+                    <a href="#">
+                        <span class="tag">${l.categoria}</span>
+                        <h3>${l.titulo}</h3>
+                        <span class="time">${l.tempo}</span>
+                    </a>
+                </div>
+            `).join('');
         })
-      document.getElementById('side-list').innerHTML = (data.laterais || []).map(l => `
-        <div class="side-item">
-          <a href="#">
-            <span class="tag">${l.categoria}</span>
-            <h3>${l.titulo}</h3>
-            <span class="time">${l.tempo}</span>
-          </a>
-        </div>
-      `).join('');
-    })
-    .catch(() => {});
+        .catch(() => {});
 
   fetch('content/noticias.json')
     .then(r => r.json())
