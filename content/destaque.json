@@ -1,26 +1,27 @@
 {
   "manchete": {
-    "categoria": "Brasileirão",
-    "titulo": "Flamengo vence o Vitória por 2 a 0 e reduz distância para o líder Palmeiras",
+    "categoria": "Copa do Brasil",
+    "titulo": "Palmeiras vence Santos por 3 a 0 e abre vantagem nas quartas de final da Copa do Brasil",
     "resumo": "Com o resultado no Maracanã, o Rubro-Negro chega aos 42 pontos, seis atrás do líder Palmeiras, que estacionou aos 48 depois de empatar sem gols com o Internacional nesta 22ª rodada.",
-    "competicao": "Brasileirão · 22ª rodada",
-    "tempo": "Ontem",
-    "imagem": "/images/pulgar-comemoracao-flamengo-vitoria.webp"
+    "competicao": "Copa do Brasil · Quartas de Final",
+    "tempo": "26/08",
+    "imagem": "/images/34926229-high-scaled-aspect-ratio-512-320.webp"
   },
   "laterais": [
     {
+      "categoria": "Palmeiras",
       "titulo": "Jhon Arias sofre lesão na coxa e desfalca o Palmeiras",
       "tempo": "Ontem"
     },
     {
-      "categoria": "Brasileirão",
-      "titulo": "Bahia e Vasco travam confronto direto e ficam no 0 a 0",
-      "tempo": "Sábado"
+      "categoria": "Flamengo",
+      "titulo": "Plata se aproxima do Dínamo de Moscou e deve ficar de fora contra o Botafogo",
+      "tempo": "Ontem"
     },
     {
-      "categoria": "Brasileirão",
-      "titulo": "Corinthians vence o Bragantino fora de casa com falha de Volpi",
-      "tempo": "Ontem"
+      "categoria": "Coritiba",
+      "titulo": "Pedro Rocha celebra boa fase no Coritiba e projeta reencontro com o Remo: “Jogo especial”",
+      "tempo": "26/08"
     }
   ]
 }
