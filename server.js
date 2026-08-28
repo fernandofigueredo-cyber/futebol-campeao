@@ -2,13 +2,11 @@ const express = require('express');
 const app = express();
 const PORT = process.env.PORT || 3000;
 
-// Serve os arquivos do site (index.html, images, admin, etc.)
 app.use(express.static('.'));
 
-// Placar via API pública da ESPN (sem chave, sem conta, sem suspensão)
 async function buscarPlacar(req, res) {
   try {
-    const ligas = ['bra.1', 'bra.2']; // Brasileirão Série A e B
+    const ligas = ['bra.1', 'bra.2'];
     const resultados = await Promise.all(
       ligas.map(liga =>
         fetch(`https://site.api.espn.com/apis/site/v2/sports/soccer/${liga}/scoreboard`)
@@ -41,7 +39,6 @@ async function buscarPlacar(req, res) {
   }
 }
 
-// Responde nas DUAS rotas — não precisa mexer no HTML
 app.get('/api/placar', buscarPlacar);
 app.get('/.netlify/functions/placar', buscarPlacar);
 
