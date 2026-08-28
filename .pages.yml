@@ -1,1 +1,21 @@
-futebolcampeao
+media_folder: "images"
+public_folder: "/images"
+
+collections:
+  - name: "noticias"
+    label: "Notícias"
+    folder: "content"
+    create: true
+    slug: "{{title}}"
+    fields:
+      - {label: "Título", name: "title", widget: "string"}
+      - {label: "Texto", name: "body", widget: "markdown", mode: "rich"}
+      - {label: "Imagem", name: "image", widget: "image", required: false}
+
+  - name: "admin"
+    label: "Admin"
+    folder: "admin"
+    create: true
+    slug: "{{filename}}"
+    fields:
+      - {label: "Arquivo", name: "body", widget: "markdown"}
