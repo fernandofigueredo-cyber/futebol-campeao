@@ -1,32 +1,30 @@
-media_folder: "images"
-public_folder: "/images"
+media:
+  input: images
+  output: /images
 
-collections:
-  - name: "noticias"
-    label: "Notícias"
-    files:
-      - file: "content/noticias.json"
-        label: "Notícias"
-        name: "noticias"
-        format: "json"
+content:
+  - name: noticias
+    label: Notícias
+    path: content/noticias.json
+    type: file
+    fields:
+      - name: items
+        label: Lista
+        type: object
+        list: true
         fields:
-          - label: "Lista"
-            name: "items"
-            widget: "list"
-            fields:
-              - label: "Esporte"
-                name: "sport"
-                widget: "string"
-              - label: "Título"
-                name: "titulo"
-                widget: "string"
-              - label: "Resumo"
-                name: "resumo"
-                widget: "text"
-              - label: "Tempo"
-                name: "tempo"
-                widget: "string"
-              - label: "Imagem"
-                name: "imagem"
-                widget: "image"
-                required: false
+          - name: sport
+            label: Esporte
+            type: string
+          - name: titulo
+            label: Título
+            type: string
+          - name: resumo
+            label: Resumo
+            type: text
+          - name: tempo
+            label: Tempo
+            type: string
+          - name: imagem
+            label: Imagem
+            type: image
