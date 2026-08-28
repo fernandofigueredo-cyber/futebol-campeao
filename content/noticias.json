@@ -1,11 +1,11 @@
 {
   "items": [
     {
-      "sport": "Brasileirão",
-      "titulo": "Viveros marca duas vezes e Athletico-PR goleia o Santos",
-      "resumo": "Com dois gols de Kevin Viveros, artilheiro isolado do Brasileirão, o Furacão venceu por 2 a 0 na Vila Belmiro e chegou ao G-4, enquanto o Santos, sem Neymar suspenso, voltou à zona de rebaixamento.",
+      "sport": "Copa do Brasil",
+      "titulo": "Grenal sem emoção: Inter não passa do 0 a 0 com o Grêmio pela Copa do Brasil",
+      "resumo": "Com pouca qualidade em campo e muito nervosismo envolvido, as duas equipes esbarraram em muitos erros e não conseguiram balançar as redes.",
       "tempo": "Ontem",
-      "imagem": "/images/athletico-santos-scaled-aspect-ratio-512-320.webp"
+      "imagem": "/images/Inter-e-Gremio-empatam-e1787879049979.jpg"
     },
     {
       "sport": "Brasileirão",
@@ -25,8 +25,7 @@
       "sport": "Brasileirão",
       "titulo": "Bahia e Vasco travam confronto direto e ficam no 0 a 0",
       "resumo": "Sem gols na Fonte Nova, as duas equipes seguem próximas na tabela nesta 22ª rodada do Brasileirão.",
-      "tempo": "Sábado",
-      "imagem": "/images/bahia-e-vasco.jfif"
+      "tempo": "Sábado"
     },
     {
       "sport": "Brasileirão",
