@@ -53,6 +53,9 @@ content:
           - name: tempo
             label: Tempo
             type: string
+          - name: imagem
+            label: Imagem de fundo
+            type: image
       - name: laterais
         label: Notícias Laterais
         type: object
