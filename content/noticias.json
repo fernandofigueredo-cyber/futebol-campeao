@@ -1,45 +1,46 @@
 {
   "items": [
     {
-      "sport": "Copa do Brasil",
-      "titulo": "Grenal sem emoção: Inter não passa do 0 a 0 com o Grêmio pela Copa do Brasil",
-      "resumo": "Com pouca qualidade em campo e muito nervosismo envolvido, as duas equipes esbarraram em muitos erros e não conseguiram balançar as redes.",
+      "sport": "Brasileirão",
+      "titulo": "Bahia vence o Internacional de virada e entra no G5 do Brasileirão.",
+      "resumo": "O Bahia venceu o Internacional por 3 a 2, pela 25ª rodada do Campeonato Brasileiro. O triunfo do tricolor veio de virada, com todos os três gols marcados ainda no primeiro tempo.\n\nJá para o Internacional, a derrota amarga a 18ª colocação do Brasileirão.",
       "tempo": "Ontem",
-      "imagem": "/images/Inter-e-Gremio-empatam-e1787879049979.jpg"
+      "imagem": "/images/imagem_2026-08-31_085135036.png"
     },
     {
       "sport": "Brasileirão",
-      "titulo": "Cruzeiro vence o Mirassol logo cedo e mantém-se no G5",
-      "resumo": "João Marcelo abriu o placar, o Mirassol buscou o empate, mas Kaio Jorge e o estreante Wesley garantiram a virada por 3 a 1.",
+      "titulo": "Palmeiras empata com o Mirassol e vê distância na liderança do Brasileirão diminuir",
+      "resumo": "O Palmeiras tropeçou na 25ª rodada do Campeonato Brasileiro. Neste domingo (30), o time de Abel Ferreira ficou no empate por 1 a 1 com o Mirassol, no Estádio José Maria de Campos Maia (Maião), em Mirassol (SP).",
+      "tempo": "Ontem",
+      "imagem": "/images/palmeirasxmirassol-pedrozacchi-02.webp"
+    },
+    {
+      "sport": "Brasileirão",
+      "titulo": "Flamengo goleia o Botafogo por 3 a 0 no clássico e segue na caça ao Palmeiras",
+      "resumo": "O Flamengo venceu o Botafogo por 3 a 0 neste domingo (30), no Maracanã, no clássico de número 400 da rivalidade, válido pela 25ª rodada do Campeonato Brasileiro. Samuel Lino foi o grande destaque da partida, com dois gols, enquanto Carrascal fechou o placar em uma jogada coletiva de categoria.",
       "tempo": "Sábado",
-      "imagem": "/images/kaio-jorge-comemora-gol-pelo-cruzeiro-contra-o-mirassol-pelo-brasileirao-1786291244014_v2_900x506.jpg"
+      "imagem": "/images/imagem_2026-08-31_090900965.png"
     },
     {
       "sport": "Brasileirão",
-      "titulo": "Corinthians vence o Bragantino após falha do goleiro Volpi",
-      "resumo": "Rodrigo Garro aproveitou erro de Tiago Volpi para abrir o placar, e Pedro Raul ampliou no fim, garantindo o 2 a 0 do Timão fora de casa.",
+      "titulo": "Com gol de Christian Oliva, Santos vence o Corinthians no clássico",
+      "resumo": "O Santos derrotou o Corinthians por 1 a 0 neste domingo (30), na Neo Química Arena, pela 25ª rodada do Campeonato Brasileiro, e conquistou sua primeira vitória em clássicos na temporada. O gol da partida foi marcado pelo volante Christian Oliva, ainda no primeiro tempo.",
       "tempo": "Ontem",
-      "imagem": "/images/rodrigo-garro-17-e1786317287773-740x416.webp"
+      "imagem": "/images/imagem_2026-08-31_091718526.png"
     },
     {
       "sport": "Brasileirão",
-      "titulo": "Bahia e Vasco travam confronto direto e ficam no 0 a 0",
-      "resumo": "Sem gols na Fonte Nova, as duas equipes seguem próximas na tabela nesta 22ª rodada do Brasileirão.",
-      "tempo": "Sábado"
+      "titulo": "Athletico-PR e Fluminense fazem jogo de seis gols e empatam em 3 a 3",
+      "resumo": "Athletico Paranaense e Fluminense protagonizaram um dos jogos mais movimentados da 25ª rodada do Campeonato Brasileiro. Na manhã deste domingo (30), na Ligga Arena, em Curitiba, as equipes empataram por 3 a 3, em partida de viradas, seis gols e um pênalti decisivo nos acréscimos.",
+      "tempo": "Sábado",
+      "imagem": "/images/Captura de tela 2026-08-31 092202.png"
     },
     {
       "sport": "Brasileirão",
-      "titulo": "Flamengo vence o Vitória e se aproxima do líder Palmeiras",
-      "resumo": "Com o triunfo por 2 a 0 no Maracanã, o Rubro-Negro chega aos 42 pontos, seis atrás do Palmeiras, que parou no 0 a 0 com o Internacional.",
-      "tempo": "Ontem",
-      "imagem": "/images/pulgar-comemoracao-flamengo-vitoria.webp"
-    },
-    {
-      "sport": "Copa do Brasil",
-      "titulo": "Internacional elimina o Corinthians e avança na competição",
-      "resumo": "O Timão venceu o jogo de volta por 2 a 1, mas não superou a derrota por 2 a 0 no confronto de ida e caiu diante do Colorado.",
-      "tempo": "Última semana",
-      "imagem": "/images/corinthians-x-internacional-1-aspect-ratio-512-320.webp"
+      "titulo": "São Paulo vence o Bragantino e encerra jejum de dez jogos no Brasileirão",
+      "resumo": "O São Paulo venceu o Red Bull Bragantino por 2 a 1, neste sábado (29), no Morumbis, pela 25ª rodada do Campeonato Brasileiro, e encerrou um longo jejum de dez jogos sem vencer na competição. Luciano e Gustavo Santana marcaram os gols do triunfo tricolor, enquanto Fernando descontou para os visitantes.",
+      "tempo": "Sábado",
+      "imagem": "/images/imagem_2026-08-31_092453437.png"
     }
   ]
 }
